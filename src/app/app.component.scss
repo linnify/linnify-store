@@ -13,3 +13,22 @@
 .products {
 
 }
+
+.image {
+  height: 50px;
+  width: 50px;
+}
+
+.available {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: red;
+}
+
+.notAvailable {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: green;
+}
