@@ -10,6 +10,16 @@
   color: #00aaaa;
 }
 
-.products {
+.image {
+  width: 100px;
+  height: auto;
+}
 
+.products {
+  &.available {
+    background-color: green;
+  }
+  &.not-available {
+    background-color: red;
+  }
 }
