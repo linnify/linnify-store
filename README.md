@@ -1,6 +1,17 @@
-# LinnifyStore
+# Linnify Store
+
+Our Linnify Store, where we can buy perfumes, is finally here. 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0.
+
+## Working on the app
+Every developer that is involved in this project have their own branch where they can exercise
+
+## Run App
+Pull the repository and run the following commands
+- cd linnify-store
+- npm install
+- npm run start  
 
 ## Development server
 
