@@ -8,8 +8,27 @@ import {Component, OnInit} from '@angular/core';
         <h1>{{ title }}</h1>
         <h3>Buy our Digital EAU DE PERFUME</h3>
       </div>
-
       <h3> Our Products </h3>
+
+
+<div *ngFor="let product of products">
+      <img class="image" src="{{ product.image }}">
+      {{ product.name }} {{ product.price }}
+
+        <div [ngClass]="product.available" >
+        {{ available }} || true
+        backgroundcolor=green
+        <button> ngif  </button>
+                        daca nu
+                        backgroundcolor=red
+        </div>
+</div>
+
+
+</div>
+
+
+
     </div>
   `,
   styleUrls: ['./app.component.scss']
