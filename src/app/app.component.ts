@@ -12,17 +12,24 @@ import {Component, OnInit} from '@angular/core';
 
 
 <div *ngFor="let product of products">
-      <img class="image" src="{{ product.image }}">
-      {{ product.name }} {{ product.price }}
 
-        <div [ngClass]="product.available" >
-        {{ available }} || true
-        backgroundcolor=green
-        <button> ngif  </button>
-                        daca nu
-                        backgroundcolor=red
-        </div>
+      <img class="image" src="{{ product.image }}">
+            {{ product.name }} {{ product.price }}
+            <div [ngStyle]="{'background-color':  ( product.available ) === true ? 'green' : 'red'}">
+
+            <div>
+            <button  *ngIf="(product.available) ===  true">
+                    Buy
+            </button>
+            </div>
+            <div> <p *ngIf="(product.available) === false">
+                    out of stock
+</p>
+            </div>
+
 </div>
+
+
 
 
 </div>
