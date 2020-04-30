@@ -10,6 +10,12 @@ import {Component, OnInit} from '@angular/core';
       </div>
 
       <h3> Our Products </h3>
+
+      <div *ngFor="let product of products">
+        <img src="{{ product.name }}"/>
+        {{ product.name }} {{ product.price }} $
+      </div>
+
     </div>
   `,
   styleUrls: ['./app.component.scss']
