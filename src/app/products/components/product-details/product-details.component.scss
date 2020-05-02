@@ -1,0 +1,27 @@
+.image {
+  height: 300px;
+  width: 300px;
+}
+
+.available {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: green;
+  margin: 5px;
+}
+
+.notAvailable {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: red;
+  margin: 5px;
+}
+
+.card {
+  margin: 5px;
+  display: flex;
+  font-weight: bold;
+  font-size: 2em;
+}
