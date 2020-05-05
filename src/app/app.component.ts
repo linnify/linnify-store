@@ -13,12 +13,13 @@ import {Component, OnInit} from '@angular/core';
 
 <div *ngFor="let product of products">
 
+
       <img class="image" src="{{ product.image }}">
-            {{ product.name }} {{ product.price }}
+            {{ product.name }} {{ count }}     {{ product.price }}
             <div [ngStyle]="{'background-color':  ( product.available ) === true ? 'green' : 'red'}">
 
             <div>
-            <button  *ngIf="(product.available) ===  true">
+            <button  *ngIf="(product.available) ===  true" (click)="clickCount()" >
                     Buy
             </button>
             </div>
@@ -73,10 +74,15 @@ export class AppComponent implements OnInit{
       available: true
     }
   ];
-
+  count: number = 0;
   constructor() {
   }
 
+  clickCount(): void{
+    this.count++
+    }
+
   ngOnInit(): void {
   }
+
 }
