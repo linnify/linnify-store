@@ -1,5 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, Output, EventEmitter, OnInit} from '@angular/core';
 import {Product} from "../../types/product.class";
+import {ProductsService} from "../../services/products.service";
 
 @Component({
   selector: 'app-product',
@@ -20,15 +21,19 @@ import {Product} from "../../types/product.class";
   styleUrls: ['./product.component.scss']
 })
 export class ProductComponent implements OnInit {
-  @Input()
-  products: Product[];
+  @Input() products: Product[];
 
-  constructor() { }
+  @Output() onBuy: EventEmitter<any> = new EventEmitter();
 
-  ngOnInit(): void {
+  cartItems: Product[];
+
+  constructor(private productService: ProductsService) { }
+
+  onProductBuy(product: Product) {
+    this.onBuy.emit(product)
   }
 
-  onProductBuy(product: any) {
-    product.interest += 1;
+  ngOnInit(): void {
+    this.cartItems = this.productService.getCartItems();
   }
 }

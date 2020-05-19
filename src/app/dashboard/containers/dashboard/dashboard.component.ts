@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Product} from "../../../products/types/product.class";
+import {ProductsService} from "../../../products/services/products.service";
 
 @Component({
   selector: 'app-dashboard',
@@ -9,8 +10,15 @@ import {Product} from "../../../products/types/product.class";
         <h1>{{ title }}</h1>
         <h3>Buy our Digital EAU DE PERFUME</h3>
       </div>
+      
+      <div class="" *ngIf="cartItems">
+        <h3> Items in cart: {{cartItems}} </h3>
+      </div>
 
-      <app-product [products]="products" ></app-product>
+      <app-product 
+        [products]="products" 
+        (onBuy)="onBuy($event)"
+      ></app-product>
 
     </div>
   `,
@@ -19,45 +27,16 @@ import {Product} from "../../../products/types/product.class";
 export class DashboardComponent implements OnInit {
   title = 'Welcome to Linnify Store';
   products: Product[];
+  cartItems: number = 0;
 
-  constructor() {
+  constructor(private productService: ProductsService) {
   }
 
   ngOnInit(): void {
-    this.products = [
-      {
-        id: 1,
-        name: 'Linnify Fragrance',
-        price: 49.99,
-        image: 'https://storage.googleapis.com/company-app-1276d.appspot.com/linnify-store/1.png',
-        available: true,
-        interest: 0
-      },
-      {
-        id: 2,
-        name: 'Linnify Digital Perfume',
-        price: 90,
-        image: 'https://storage.googleapis.com/company-app-1276d.appspot.com/linnify-store/2.png',
-        available: true,
-        interest: 0
-      },
-      {
-        id: 3,
-        name: 'Linnify Experience',
-        price: 150.4,
-        image: 'https://storage.googleapis.com/company-app-1276d.appspot.com/linnify-store/3.png',
-        available: false,
-        interest: 0
-      },
-      {
-        id: 4,
-        name: 'Linnify Perfume for Men',
-        price: 74.4,
-        image: 'https://storage.googleapis.com/company-app-1276d.appspot.com/linnify-store/4.png',
-        available: true,
-        interest: 0
-      }
-    ]
+    this.products = this.productService.getProducts();
   }
 
+  onBuy(product: Product) {
+    product.interest += 1;
+  }
 }

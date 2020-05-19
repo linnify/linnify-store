@@ -26,8 +26,7 @@ import {Product} from "../../types/product.class";
   styleUrls: ['./product-details.component.scss']
 })
 export class ProductDetailsComponent implements OnInit {
-  @Input()
-  product: Product;
+  @Input() product: Product;
 
   constructor() { }
 
