@@ -42,10 +42,17 @@ export class ProductFormComponent implements OnInit {
       this.imageControl.setValue(this.product.image);
     }
 
+    /**
+     * When one of the formControls from the formGroup is changed, this subscription
+     * is triggered
+     */
     this.form.valueChanges.subscribe(value => {
       console.log('Form Value', value)
     });
 
+    /**
+     * When the value of name will be changed, this subscription will be emitted
+     */
     this.nameControl.valueChanges.pipe().subscribe(value => {
       console.log('Name value ', value)
     })
